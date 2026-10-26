@@ -34,10 +34,20 @@
 
 .stance-section .stance-controls{grid-template-columns:minmax(170px,280px) minmax(100px,150px) minmax(190px,280px)}
 @media(max-width:550px){.stance-section .stance-controls{grid-template-columns:1fr 100px}.stance-controls label:last-child{grid-column:1/-1}}
+.hero{padding-bottom:18px!important;margin-bottom:12px!important}.hero .hero-jumps{display:none}.hero .stat{display:none}.hero{grid-template-columns:1fr!important}.atlas-overview{padding:28px 30px;margin-bottom:44px;background:#fffdf9}.overview-heading{display:flex;justify-content:space-between;align-items:center;gap:24px}.overview-heading h2{font-size:36px;margin:8px 0 20px}.overview-heading label{min-width:270px}.overview-meta{display:flex;justify-content:space-between;gap:16px;font-size:12px;color:var(--muted);margin:0 0 12px}.atlas-overview>svg{display:block;width:100%;height:auto;min-height:270px;touch-action:pan-y}.overview-reading{display:flex;gap:26px;align-items:center;min-height:48px;border-top:1px solid var(--line);font-size:14px;font-variant-numeric:tabular-nums}.overview-reading strong{font-size:21px}.overview-details{display:inline-block;margin-top:12px;color:var(--teal);font-size:12px;text-decoration:none}.atlas-tip{position:fixed;z-index:1000;pointer-events:none;background:#fffdf9;border:1px solid #d9dfd6;box-shadow:0 8px 30px #1b333c20;border-radius:10px;padding:12px 15px;max-width:min(430px,calc(100vw - 24px));font:12px/1.5 system-ui,sans-serif;color:#1b333c}.atlas-tip[hidden]{display:none}.atlas-tip>strong{display:block;font-size:16px;margin-bottom:5px}.atlas-tip-row{display:grid;grid-template-columns:minmax(100px,1fr) auto auto;gap:10px;align-items:baseline}.atlas-tip-row span:not(:first-child){font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}.atlas-tip-labels{font-size:10px;margin-bottom:3px;color:#617277}.atlas-hover-line{pointer-events:none;stroke:#617277;stroke-width:1;stroke-dasharray:3 4}.atlas-hover-dot{pointer-events:none;stroke:#fff;stroke-width:1.5}svg[data-scrub]{touch-action:pan-y;outline-offset:4px}svg[data-scrub]:focus-visible{outline:2px solid var(--teal)}
+@media(max-width:700px){.atlas-overview{padding:20px 14px}.overview-heading{align-items:stretch;flex-direction:column;gap:0}.overview-heading h2{font-size:29px}.overview-heading label{min-width:0}.overview-meta{flex-direction:column;margin-top:16px;gap:8px}.overview-reading{gap:14px;flex-wrap:wrap;font-size:12px}.overview-reading strong{font-size:17px}.atlas-overview>svg{min-height:0;view-transition-name:none}.overview-meta>span{font-size:11px}}
 </style></head><body><main id="top">
 <header class="hero"><div><div class="eyebrow">Congressional speech atlas · party comparison · 1873–2025</div><h1>Topics by party</h1><p class="intro">Congressional speeches, tweets and campaign websites.</p><div class="hero-jumps"><a class="history-jump" href="#speeches">Floor speeches · every year ↓</a><a class="history-jump" href="#channels">Compare speeches, tweets & websites ↓</a><a class="history-jump" href="#stances">Policy positions · pilot ↓</a><a class="history-jump" href="#history">Explore the historical timeline ↓</a><a class="history-jump" href="#tweets">Explore House member tweets ↓</a><a class="history-jump" href="#campaigns">Campaign websites · election years ↓</a><a class="history-jump" href="#people">Compare politicians & electoral margins ↓</a></div></div><div class="stat"><strong>10.96m</strong><small>chunks with source D/R tags</small><strong style="margin-top:12px">18</strong><small>parent subjects · 165 original topics</small></div></header>
+<section id="overview" class="panel atlas-overview" aria-labelledby="overview-heading">
+  <div class="overview-heading"><div><div class="eyebrow">Congressional speeches · 1873–2025</div><h2 id="overview-heading">What Congress discusses</h2></div><label><span>Subject</span><select id="overview-subject"></select></label></div>
+  <div class="overview-meta"><div class="legend"><span class="partyD">● Democrats</span><span class="partyR">┄ Republicans</span></div><span>Share of each party’s text · move across the graph</span></div>
+  <svg id="overview-chart" viewBox="0 0 1200 440" role="img" aria-label="Annual topic shares for Democrats and Republicans, 1873 to 2025"></svg>
+  <div id="overview-reading" class="overview-reading" aria-live="off"></div>
+  <a class="overview-details" href="#speeches">Explore subjects, years and sources ↓</a>
+</section>
+
 <div id="speeches" class="speech-heading"><div class="eyebrow">Floor speeches · House & Senate · 1873–2025</div><h2>Congressional speeches</h2><p class="sub">Every year from 1873 to 2025.</p></div>
-<div class="controls"><label><span>Subject detail</span><select id="detail"><option value="parents">18 parent subjects</option><option value="topics">165 original topics</option></select></label><label><span>Time scale</span><select id="scale"><option value="decade">Decades</option><option value="year">Years</option></select></label><label><span>Jump to speech year</span><select id="speech-year"><option value="" disabled>Choose any year…</option></select></label><label><span>Chamber</span><select id="chamber"><option value="Both">House + Senate</option><option>House</option><option>Senate</option></select></label><label><span>Weighting</span><select id="measure"><option value="chunks">Text chunks</option><option value="speeches">Equal speech turns</option></select></label><label><span>Topic view</span><select id="view"><option value="subjects">Subject-focused</option><option value="all">Include procedure & ceremony</option></select></label><label><span>Party labels</span><select id="basis"><option value="source">CORA source tags</option><option value="service">Dated member links</option></select></label></div>
+<div class="controls"><label><span>Subject detail</span><select id="detail"><option value="parents">18 parent subjects</option><option value="topics">165 original topics</option></select></label><label><span>Time scale</span><select id="scale"><option value="decade">Decades</option><option value="year" selected>Years</option></select></label><label><span>Jump to speech year</span><select id="speech-year"><option value="" disabled>Choose any year…</option></select></label><label><span>Chamber</span><select id="chamber"><option value="Both">House + Senate</option><option>House</option><option>Senate</option></select></label><label><span>Weighting</span><select id="measure"><option value="chunks">Text chunks</option><option value="speeches">Equal speech turns</option></select></label><label><span>Topic view</span><select id="view"><option value="subjects">Subject-focused</option><option value="all">Include procedure & ceremony</option></select></label><label><span>Party labels</span><select id="basis"><option value="source">CORA source tags</option><option value="service">Dated member links</option></select></label></div>
 <div class="periodbar"><button class="nav" id="prev" aria-label="Previous period">←</button><strong id="period"></strong><input id="slider" type="range" aria-label="Select period" min="0" max="15" value="15"><button class="nav" id="next" aria-label="Next period">→</button></div>
 <p id="coverage" class="coverage"></p>
 <section class="panel issue-overview" id="issue-overview" aria-labelledby="issue-heading">
@@ -215,7 +225,7 @@
 const P=JSON.parse(document.getElementById('parent-data').textContent);
 const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
 const colors={D:'#286baf',R:'#bb5145'}, hidden=new Set(D.hidden);
-let index=15,selected=2;
+let index=0,selected=2;
 const remembered={parents:2,topics:113};
 const fmt=v=>v.toFixed(1)+'%';
 function pname(y,scale=$('scale').value){return scale==='year'?String(y):y===1870?'1873–79':y===2020?'2020–25':y+'s';}
@@ -1156,5 +1166,98 @@ render();
   $('ps-prev').onclick=()=>{page--;renderEvidence();};$('ps-next').onclick=()=>{page++;renderEvidence();};
   window.policyStanceExplorer={state,render,exportCSV,exportSVG,usable,positions,sources,data};
   renderMethods();render();
+})();
+</script><script>/* Full-history landing graph and shared point inspection; no data or assignments change. */
+(() => {
+  const groups=JSON.parse($('issue-groups-data').textContent), choice=$('overview-subject');
+  [['culture','Cultural & identity issues'],['policy','Economics, policy & governance'],...P.filter(p=>p.id!=='procedure_ceremony').map(p=>['parent:'+p.id,p.label])].forEach(([v,label])=>{const o=el('option',null,label);o.value=v;choice.append(o);});
+  function overview(){
+    const c=$('overview-chart');c.replaceChildren();
+    const mobile=window.innerWidth<=700,width=mobile?600:1200,bottom=mobile?290:360;
+    c.setAttribute('viewBox','0 0 '+width+' '+(mobile?355:440));
+    const parent=P.find(p=>'parent:'+p.id===choice.value), definition=$('issue-definition').value;
+    const topics=parent?parent.topics:groups.topics.filter(t=>t[definition]===choice.value).map(t=>t.topic);
+    const values=Object.fromEntries(['D','R'].map(p=>[p,annual(p).map(row=>topics.reduce((s,t)=>s+row[t],0))]));
+    const max=Math.max(2,Math.ceil(Math.max(...values.D,...values.R)/5)*5),x=i=>65+i/(D.years.length-1)*(width-100),y=v=>bottom-v/max*(bottom-35);
+    c.append(svg('title',{},choice.selectedOptions[0].textContent),svg('desc',{},'Annual shares, 1873–2025. Solid blue: Democrats. Dashed red: Republicans. Use left and right arrows to inspect years.'));
+    for(let j=0;j<=4;j++){const v=max*j/4;c.append(svg('line',{x1:65,x2:width-35,y1:y(v),y2:y(v),stroke:'#e1e6df'}),svg('text',{x:54,y:y(v)+5,'text-anchor':'end','font-size':14,fill:'#617277'},v.toFixed(v%1?1:0)+'%'));}
+    for(const p of ['D','R']){
+      c.append(svg('path',{d:values[p].map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join(' '),fill:'none',stroke:colors[p],'stroke-width':3,'stroke-dasharray':p==='R'?'7 4':'none','stroke-linejoin':'round'}));
+      values[p].forEach((v,i)=>{const dot=svg('circle',{cx:x(i),cy:y(v),r:4,fill:'transparent','data-year':D.years[i],'data-value':v,'data-series':p});dot.append(svg('title',{},(p==='D'?'Democrats':'Republicans')+' · '+D.years[i]+': '+fmt(v)));c.append(dot);});
+    }
+    (mobile?[1873,1925,1975,2025]:[1873,1900,1925,1950,1975,2000,2025]).forEach(yr=>c.append(svg('text',{x:x(D.years.indexOf(yr)),y:bottom+36,'text-anchor':'middle','font-size':14,fill:'#617277'},yr)));
+    $('overview-reading').replaceChildren(el('span',null,'1873–2025'),el('span',null,'Move across the graph for annual shares'));
+  }
+  choice.onchange=overview;
+  for(const id of ['chamber','measure','basis','issue-definition'])$(id).addEventListener('change',overview);
+  overview();
+
+  const tip=el('div','atlas-tip');tip.hidden=true;tip.setAttribute('role','status');document.body.append(tip);
+  const parse=dot=>{
+    const text=dot.querySelector('title')?.textContent||'',m=text.match(/((?:18|19|20)\d{2}(?:[–-]\d{2})?s?)\*?:\s*([\d.]+)%/);
+    if(!m)return null;
+    let label=text.slice(0,m.index).replace(/[·\s]+$/,'');
+    if(label==='D')label='Democrats';if(label==='R')label='Republicans';
+    return {dot,period:m[1],value:Number(dot.dataset.value??m[2]),label,x:Number(dot.getAttribute('cx')),y:Number(dot.getAttribute('cy'))};
+  };
+  const points=c=>[...c.querySelectorAll('circle')].map(parse).filter(Boolean);
+  const partner=c=>c.id?.match(/-([DR])$/)?$(c.id.slice(0,-1)+(c.id.endsWith('D')?'R':'D')):null;
+  let active=null,activePoints=[],keyboard=0;
+  function clear(){tip.hidden=true;if(active){active.querySelectorAll('.atlas-hover-line,.atlas-hover-dot').forEach(n=>n.remove());partner(active)?.querySelectorAll('.atlas-hover-line,.atlas-hover-dot').forEach(n=>n.remove());}active=null;}
+  function show(c,period,event){
+    const own=points(c).filter(p=>p.period===period);if(!own.length)return;
+    if(active&&active!==c)clear();active=c;
+    const other=partner(c),paired=other?points(other).filter(p=>p.period===period):[];
+    for(const chart of [c,other].filter(Boolean)){
+      chart.querySelectorAll('.atlas-hover-line,.atlas-hover-dot').forEach(n=>n.remove());
+      const rows=chart===c?own:paired;if(!rows.length)continue;
+      const vb=chart.getAttribute('viewBox').split(/\s+/).map(Number);
+      chart.append(svg('line',{x1:rows[0].x,x2:rows[0].x,y1:30,y2:vb[3]-50,class:'atlas-hover-line'}));
+      rows.forEach(p=>chart.append(svg('circle',{cx:p.x,cy:p.y,r:5,fill:colors[p.dot.dataset.series]||p.dot.getAttribute('stroke')||(p.dot.getAttribute('fill')!=='transparent'?p.dot.getAttribute('fill'):'#617277')||'#617277',class:'atlas-hover-dot'})));
+    }
+    tip.replaceChildren(el('strong',null,period));
+    const row=(label,d,r)=>{const line=el('div','atlas-tip-row');line.append(el('span',null,label));for(const [v,party] of [[d,'D'],[r,'R']])if(v!==undefined)line.append(el('span','party'+party,v==null?'—':fmt(v)));tip.append(line);};
+    if(other){
+      const ds=c.id.endsWith('D')?own:paired,rs=c.id.endsWith('R')?own:paired;
+      const head=el('div','atlas-tip-row atlas-tip-labels');head.append(el('span',null,''),el('span',null,'Dem'),el('span',null,'Rep'));tip.append(head);
+      [...new Set([...ds,...rs].map(p=>p.label))].forEach(label=>row(label,ds.find(p=>p.label===label)?.value??null,rs.find(p=>p.label===label)?.value??null));
+    }else own.forEach(p=>{const line=el('div','atlas-tip-row');line.append(el('span',null,p.label),el('span',/Republican/.test(p.label)?'partyR':/Democrat/.test(p.label)?'partyD':'',fmt(p.value)));tip.append(line);});
+    tip.hidden=false;
+    const bounds=c.getBoundingClientRect(),left=event?.clientX??bounds.left+bounds.width/2,top=event?.clientY??bounds.top+40;
+    const width=tip.getBoundingClientRect().width||300,height=tip.getBoundingClientRect().height||100;
+    tip.style.left=Math.max(12,Math.min(window.innerWidth-width-12,left+18))+'px';
+    tip.style.top=Math.max(12,Math.min(window.innerHeight-height-12,top+18))+'px';
+    if(c.id==='overview-chart'){
+      const box=$('overview-reading');box.replaceChildren(el('strong',null,period));own.forEach(p=>box.append(el('span',p.label==='Democrats'?'partyD':'partyR',p.label+' '+fmt(p.value))));
+    }
+  }
+  function attach(c){
+    if(c.dataset.scrub||c.id==='pp-scatter'||!points(c).length)return;
+    c.dataset.scrub='true';c.setAttribute('tabindex','0');
+    c.addEventListener('pointermove',e=>{
+      const ps=points(c);if(!ps.length)return;
+      const rect=c.getBoundingClientRect(),vb=c.getAttribute('viewBox').split(/\s+/).map(Number);
+      // Respect SVG's default xMidYMid meet letterboxing on narrow displays.
+      const scale=Math.min(rect.width/vb[2],rect.height/vb[3]),offset=(rect.width-vb[2]*scale)/2;
+      const x=(e.clientX-rect.left-offset)/scale;
+      const nearest=ps.reduce((a,b)=>Math.abs(b.x-x)<Math.abs(a.x-x)?b:a);
+      show(c,nearest.period,e);
+    });
+    c.addEventListener('pointerleave',()=>{if(active===c)clear();});
+    c.addEventListener('focus',()=>{activePoints=[...new Set(points(c).map(p=>p.period))];keyboard=0;show(c,activePoints[keyboard]);});
+    c.addEventListener('blur',clear);
+    c.addEventListener('keydown',e=>{
+      activePoints=[...new Set(points(c).map(p=>p.period))];if(!activePoints.length)return;
+      if(e.key==='Escape'){clear();return;}if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+      e.preventDefault();keyboard=e.key==='Home'?0:e.key==='End'?activePoints.length-1:Math.max(0,Math.min(activePoints.length-1,keyboard+(e.key==='ArrowRight'?1:-1)));show(c,activePoints[keyboard]);
+    });
+  }
+  document.querySelectorAll('svg').forEach(attach);
+  new MutationObserver(records=>{
+    const charts=new Set();records.forEach(r=>{const c=r.target.closest?.('svg');if(c&&!r.target.closest?.('.atlas-hover-line,.atlas-hover-dot'))charts.add(c);r.addedNodes.forEach(n=>{if(n.nodeType===1){if(n.matches?.('svg'))charts.add(n);n.querySelectorAll?.('svg').forEach(s=>charts.add(s));}});});charts.forEach(attach);
+  }).observe(document.querySelector('main'),{childList:true,subtree:true});
+  window.addEventListener('scroll',clear,{passive:true});
+  let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{clear();overview();},120);});
+  window.atlasOverview={draw:overview,points,show,clear};
 })();
 </script></body></html>
